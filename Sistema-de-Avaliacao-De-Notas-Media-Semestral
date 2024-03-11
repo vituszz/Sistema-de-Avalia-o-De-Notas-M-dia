@@ -1,0 +1,80 @@
+using System;
+
+namespace Aula04_03_EXERCICIO1
+{
+    internal class Program
+    {
+        //Criação de Variáveis - Acessar variáveis de qualquer função (principal/secundária).
+        private static double retornoNP1;
+        private static double retornoNP2;
+        private static double retornoPIM;
+
+        // Criando variável e definindo tipo (ACESSO EXTERNO)
+        public static double MEDIA { get; private set; } //TIRAR DUVIDA COM O PROF, VI NA NET ESSA FORMA
+        static void Main(string[] args)
+        {
+        //Chamando as execuções das Funções
+
+            retornoNP1 = retornarnotaNP1();
+            retornoNP2 = retornarnotaNP2();
+            retornoPIM = retornarnotaPIM();
+            retornarMEDIASEMESTRAL();
+            retornarAPROVADOouNAO();
+        }
+        
+        //Executando a ação de armazenar a nota da NP1.
+        public static double retornarnotaNP1()
+        {
+            double notaNP1 = 0;
+            Console.WriteLine("Digite qual foi sua nota da NP1:");
+            notaNP1 = Convert.ToDouble(Console.ReadLine());
+            return notaNP1;
+
+        }        
+        //Executando a ação de armazenar a nota da NP2.
+        public static double retornarnotaNP2()
+        {
+            double notaNP2 = 0;
+            Console.WriteLine("Agora digite qual foi sua nota da NP2:");
+            notaNP2 = Convert.ToDouble(Console.ReadLine());
+            return notaNP2;
+        }
+
+        //Executando a ação de armazenar a nota do PIM.
+        public static double retornarnotaPIM()
+        {
+            double notaPIM = 0;
+            Console.WriteLine("Por fim, digite qual foi sua nota do PIM:");
+            notaPIM = Convert.ToDouble(Console.ReadLine());
+            return notaPIM;
+        }
+
+        //Executando a operação do cálculo da Média Semestral.
+        static double retornarMEDIASEMESTRAL()
+        {
+            MEDIA = ((retornoNP1 * 40) + (retornoNP2 * 40) + (retornoPIM * 20)) / 100;
+            return MEDIA;
+
+        }
+
+        // Executando ação de infomar se aluno foi Aprovado ou Reprovado.
+        static double retornarAPROVADOouNAO()
+        {
+            double APROVADOouNAO = MEDIA;
+            if (MEDIA >= 7)
+            {
+                Console.WriteLine("\nParabéns, sua nota foi {0} e você foi aprovado!", MEDIA);
+                Console.ReadKey();
+                return APROVADOouNAO;
+            }else
+            {
+                Console.WriteLine("\nSinto muito... sua nota foi {0} e você não foi aprovado!", MEDIA);
+                Console.ReadKey();
+                return APROVADOouNAO;
+            }
+
+        }
+
+    } 
+
+}
